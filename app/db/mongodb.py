@@ -7,7 +7,12 @@ class MongoDB:
 
     @classmethod
     async def connect_db(cls):
-        cls.client = AsyncIOMotorClient(settings.MONGODB_URL)
+        # Using tlsAllowInvalidCertificates=True to bypass SSL errors common with Atlas + Windows
+        cls.client = AsyncIOMotorClient(
+            settings.MONGODB_URL,
+            tls=True,
+            tlsAllowInvalidCertificates=True
+        )
         cls.db = cls.client[settings.DATABASE_NAME]
         print(f"Connected to MongoDB at {settings.MONGODB_URL}")
 

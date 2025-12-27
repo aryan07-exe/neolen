@@ -1,3 +1,6 @@
+
+## Note: I have pushed the .env folder to make the setup simple and easy to use.
+## I have added my gemini api and mongo url for the testing part.
 # AI Health Tracking Backend
 
 ## Project Overview
@@ -32,8 +35,10 @@ Endpoints
 
 - `POST /track`: Log health data.
   - Body: `{"text": "I drank 500ml water"}`
+  Through this api we can give the input of the daily activites which are stored in the db and then later llm can answer based on the data
 - `POST /query`: Ask questions or get analytics.
   - Body: `{"query": "How is my sleep trend?"}`
+  This uses db as context and based on the info it have it answers the queries asked
 
 ## Architecture
 
